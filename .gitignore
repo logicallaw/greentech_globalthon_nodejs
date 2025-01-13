@@ -1,0 +1,18 @@
+# Node.js 의존성
+node_modules/
+
+# 환경 변수 파일
+.env
+
+# log 기록
+logs/history
+
+# MacOS
+.DS_Store
+
+# image 폴더
+sam/
+kolors/
+
+# VSCode
+.vscode/
