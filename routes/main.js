@@ -5,14 +5,14 @@
  * For full license text, see the LICENSE file in the root directory or at
  * https://opensource.org/license/mit
  * Author: logicallaw
- * Latest Updated Date: 2025-01-13
+ * Latest Updated Date: 2025-01-14
  */
 
 // 1. Import modules
 const express = require('express');
 
 // 2. Import controllers
-const {home, health} = require('../controllers/main');
+const {home, health, test} = require('../controllers/main');
 
 // Define express router
 const router = express.Router();
@@ -22,5 +22,8 @@ router.get('/', home);
 
 // GET /health
 router.get('/health', health);
+
+// GET /test
+router.get('/test', test);
 
 module.exports = router;
