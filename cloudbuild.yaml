@@ -1,0 +1,33 @@
+steps:
+  # 1. Install dependancy
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+
+  # 2. Update your repository using 'git pull'
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'compute'
+      - 'ssh'
+      - 'instance-20250113-064727'
+      - '--zone'
+      - 'us-central1-b'
+      - '--command'
+      - |
+        git config --global --add safe.directory /home/logicallawbio/greentech_globalthon_nodejs && \
+        cd /home/logicallawbio/greentech_globalthon_nodejs && git pull
+
+  # 3. Restart your server using pm2
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'compute'
+      - 'ssh'
+      - 'instance-20250113-064727'
+      - '--zone'
+      - 'us-central1-b'
+      - '--command'
+      - |
+        cd /home/logicallawbio/greentech_globalthon_nodejs && \
+        npx pm2 reload all
+
+# logsBucket
+logsBucket: 'gs://globalthon-nodejs-bucket' 
