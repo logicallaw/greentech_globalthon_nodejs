@@ -5,11 +5,12 @@
  * For full license text, see the LICENSE file in the root directory or at
  * https://opensource.org/license/mit
  * Author: logicallaw
- * Latest Updated Date: 2025-01-13
+ * Latest Updated Date: 2025-01-14
  */
 
 exports.health = async (req, res, next) => {
   try {
+    console.log(`Health Check at ${new Date()}`);
     return res.status(200).json({message: 'health check에 성공하였습니다.'});
   } catch (error) {
     return res.status(500).json(

@@ -12,7 +12,7 @@
 const express = require('express');
 
 // 2. Import controllers
-const {home, health, test} = require('../controllers/main');
+const {home, health} = require('../controllers/main');
 
 // Define express router
 const router = express.Router();
@@ -22,8 +22,5 @@ router.get('/', home);
 
 // GET /health
 router.get('/health', health);
-
-// GET /test
-router.get('/test', test);
 
 module.exports = router;
