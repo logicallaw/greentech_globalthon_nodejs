@@ -22,3 +22,5 @@ steps:
 # 권장: 빌드 후 출력된 이미지를 저장하는 태그
 images:
   - 'gcr.io/$PROJECT_ID/greentech_globalthon_nodejs:latest'
+
+logsBucket: 'gs://globalthon-nodejs-bucket' 
