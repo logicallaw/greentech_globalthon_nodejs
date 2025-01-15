@@ -136,6 +136,8 @@ For GCP Cloud Build, you must follow these steps.
 - **Database**: Cloud SQL (MySQL)  
 - **Cloud Provider**: Google Cloud Platform (GCP)  
   - GCP VM Instances (with Auto-scaling)  
+  - GCP Cloud DNS
+  - GCP Managed SSL
   - GCP Cloud Load Balancer  
   - GCP Cloud Build (for CI/CD)
 - **Code Formatting**: Clang-format  
