@@ -1,5 +1,5 @@
 steps:
-  # 1. Docker 이미지 빌드
+  # 0. Docker 이미지 빌드
   - name: 'docker'
     args:
       - 'build'
@@ -7,14 +7,14 @@ steps:
       - 'gcr.io/$PROJECT_ID/greentech_globalthon_nodejs:latest'
       - '.'
 
-  # 2. Docker 이미지 푸시
+  # 1. Docker 이미지 푸시
   - name: 'docker'
     args:
       - 'push'
       - 'gcr.io/$PROJECT_ID/greentech_globalthon_nodejs:latest'
 
-  # 3. Deploy Docker Compose
-  - name: 'gcr.io/cloud-builders/docker-compose'
+  # 2. Deploy Docker Compose
+  - name: 'docker/compose:1.29.2'
     args:
       - 'up'
       - '-d'
