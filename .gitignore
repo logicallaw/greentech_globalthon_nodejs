@@ -1,5 +1,6 @@
 # Node.js 의존성
 node_modules/
+npm-debug.log
 
 # 환경 변수 파일
 .env
@@ -9,10 +10,6 @@ logs/history
 
 # MacOS
 .DS_Store
-
-# image 폴더
-sam/
-kolors/
 
 # VSCode
 .vscode/
