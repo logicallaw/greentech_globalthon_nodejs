@@ -1,5 +1,9 @@
 steps:
-  # 0. Update your repository using 'git pull'
+  # 1. Install dependancy
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+
+  # 2. Update your repository using 'git pull'
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'compute'
@@ -12,7 +16,7 @@ steps:
         git config --global --add safe.directory /home/logicallawbio/greentech_globalthon_nodejs && \
         cd /home/logicallawbio/greentech_globalthon_nodejs && git pull
 
-  # 1. SSH로 VM Instance에 접속 후 Docker 이미지 빌드
+  # 3. Restart your server using pm2
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'compute'
@@ -23,24 +27,7 @@ steps:
       - '--command'
       - |
         cd /home/logicallawbio/greentech_globalthon_nodejs && \
-        docker build --tag gcr.io/$PROJECT_ID/greentech_globalthon_nodejs:latest .
+        npm run prod
 
-  # 2. SSH로 VM Instance에 접속 후 Docker Compose 실행
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args:
-      - 'compute'
-      - 'ssh'
-      - 'instance-20250113-064727'
-      - '--zone'
-      - 'us-central1-b'
-      - '--command'
-      - |
-        cd /home/logicallawbio/greentech_globalthon_nodejs && \
-        docker-compose down && \
-        docker-compose up -d
-
-# 권장: 빌드 후 출력된 이미지를 저장하는 태그
-images:
-  - 'gcr.io/$PROJECT_ID/greentech_globalthon_nodejs:latest'
-
-logsBucket: 'gs://globalthon-nodejs-bucket'
+# logsBucket
+logsBucket: 'gs://globalthon-nodejs-bucket' 
