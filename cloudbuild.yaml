@@ -27,7 +27,7 @@ steps:
       - '--command'
       - |
         cd /home/logicallawbio/greentech_globalthon_nodejs && \
-        npm run prod
+        npx pm2 reload all
 
 # logsBucket
 logsBucket: 'gs://globalthon-nodejs-bucket' 
