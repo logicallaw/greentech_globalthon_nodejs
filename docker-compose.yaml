@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  greentech_globalthon_nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    env_file:
+      - ./.env
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    volumes:
+      - ./:/greentech_globalthon_nodejs
+      - /greentech_globalthon_nodejs/node_modules
+    container_name: greentech_nodejs
+    restart: always
+    networks:
+      - greentech_network
+
+networks:
+  greentech_network:
+    driver: bridge
