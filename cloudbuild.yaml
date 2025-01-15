@@ -12,8 +12,15 @@ steps:
     args:
       - 'push'
       - 'gcr.io/$PROJECT_ID/greentech_globalthon_nodejs:latest'
+      
+  # 2. Copy .env to workspace
+  - name: 'gcr.io/cloud-builders/gsutil'
+    args:
+      - 'cp'
+      - 'gs://globalthon-nodejs-bucket/.env'
+      - '/workspace/.env'
 
-  # 2. Deploy Docker Compose
+  # 3. Deploy Docker Compose
   - name: 'docker/compose:1.29.2'
     args:
       - 'up'
