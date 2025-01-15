@@ -1,4 +1,17 @@
 steps:
+  # 0. Update your repository using 'git pull'
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'compute'
+      - 'ssh'
+      - 'instance-20250113-064727'
+      - '--zone'
+      - 'us-central1-b'
+      - '--command'
+      - |
+        git config --global --add safe.directory /home/logicallawbio/greentech_globalthon_nodejs && \
+        cd /home/logicallawbio/greentech_globalthon_nodejs && git pull
+
   # 1. SSH로 VM Instance에 접속 후 Docker 이미지 빌드
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
@@ -9,7 +22,7 @@ steps:
       - 'us-central1-b'
       - '--command'
       - |
-        cd /home/logicallawbio/docker && \
+        cd /home/logicallawbio/greentech_globalthon_nodejs && \
         docker build --tag gcr.io/$PROJECT_ID/greentech_globalthon_nodejs:latest .
 
   # 2. SSH로 VM Instance에 접속 후 Docker Compose 실행
@@ -22,7 +35,7 @@ steps:
       - 'us-central1-b'
       - '--command'
       - |
-        cd /home/logicallawbio/docker && \
+        cd /home/logicallawbio/greentech_globalthon_nodejs && \
         docker-compose down && \
         docker-compose up -d
 
