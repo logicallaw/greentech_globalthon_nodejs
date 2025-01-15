@@ -1,33 +1,33 @@
 steps:
-  # 0. Docker 이미지 빌드
-  - name: 'docker'
+  # 1. SSH로 VM Instance에 접속 후 Docker 이미지 빌드
+  - name: 'gcr.io/cloud-builders/gcloud'
     args:
-      - 'build'
-      - '--tag'
-      - 'gcr.io/$PROJECT_ID/greentech_globalthon_nodejs:latest'
-      - '.'
+      - 'compute'
+      - 'ssh'
+      - 'instance-20250113-064727'
+      - '--zone'
+      - 'us-central1-b'
+      - '--command'
+      - |
+        cd /home/logicallawbio/docker && \
+        docker build --tag gcr.io/$PROJECT_ID/greentech_globalthon_nodejs:latest .
 
-  # 1. Docker 이미지 푸시
-  - name: 'docker'
+  # 2. SSH로 VM Instance에 접속 후 Docker Compose 실행
+  - name: 'gcr.io/cloud-builders/gcloud'
     args:
-      - 'push'
-      - 'gcr.io/$PROJECT_ID/greentech_globalthon_nodejs:latest'
-      
-  # 2. Copy .env to workspace
-  - name: 'gcr.io/cloud-builders/gsutil'
-    args:
-      - 'cp'
-      - 'gs://globalthon-nodejs-bucket/.env'
-      - '/workspace/.env'
-
-  # 3. Deploy Docker Compose
-  - name: 'docker/compose:1.29.2'
-    args:
-      - 'up'
-      - '-d'
+      - 'compute'
+      - 'ssh'
+      - 'instance-20250113-064727'
+      - '--zone'
+      - 'us-central1-b'
+      - '--command'
+      - |
+        cd /home/logicallawbio/docker && \
+        docker-compose down && \
+        docker-compose up -d
 
 # 권장: 빌드 후 출력된 이미지를 저장하는 태그
 images:
   - 'gcr.io/$PROJECT_ID/greentech_globalthon_nodejs:latest'
 
-logsBucket: 'gs://globalthon-nodejs-bucket' 
+logsBucket: 'gs://globalthon-nodejs-bucket'
