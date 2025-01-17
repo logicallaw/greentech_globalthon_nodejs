@@ -23,6 +23,7 @@ const cors = require('cors');
 
 // Import custom modules
 const main_router = require('./routes/main');
+const detect_router = require('./routes/detect');
 
 const db = require('./models');
 
@@ -99,6 +100,7 @@ db.sequelize.sync({force: process.env.NODE_ENV === 'test'})
 
 // 8. Set routers
 app.use('/', main_router);
+app.use('/detect', detect_router);
 
 // 9. Error Handling Middleware
 app.use((req, res, next) => {
