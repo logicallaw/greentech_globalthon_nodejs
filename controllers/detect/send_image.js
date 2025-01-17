@@ -29,7 +29,7 @@ exports.send_image = async (req, res, next) => {
     return res.status(400).json({message: 'Required base64Image'});
   }
 
-  const json_payload = {base64Image};
+  const json_payload = {image: base64Image};
 
   try {
     const response = await axios.post(flask_url, json_payload);
@@ -40,6 +40,7 @@ exports.send_image = async (req, res, next) => {
     }
 
     const {probability} = response.data;
+    console.log(response.data);
 
     return res.status(200).json({
       message: 'Success to send image!',
