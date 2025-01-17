@@ -16,3 +16,5 @@ const router = express.Router();
 
 // POST /detect/send_image
 router.post('/send_image', send_image);
+
+module.exports = router;
