@@ -43,7 +43,7 @@ exports.send_image = async (req, res, next) => {
     console.log(response.data);
 
     return res.status(200).json({
-      message: 'Success to send image!',
+      message: 'Fire!',
       probability,
     });
   } catch (error) {
