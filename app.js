@@ -47,7 +47,6 @@ const global_limiter = ratelimit({
   message: 'Too many requests, please try again later.',
   keyGenerator: (req) => req.ip,  // Limit based on ip address
 });
-app.use(global_limiter);
 app.use(cors());
 
 // 5. Set middlewares
