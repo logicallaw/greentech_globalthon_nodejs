@@ -4,7 +4,7 @@
   "description": "2025 GreenTech Globalthon NodeJS Server",
   "main": "server.js",
   "scripts": {
-    "prod": "cross-env NODE_ENV=production PORT=3009 pm2 start server.js",
+    "prod": "cross-env NODE_ENV=production PORT=3000 pm2 start server.js",
     "dev": "cross-env NODE_ENV=development PORT=3001 nodemon server.js",
     "test": "cross-env NODE_ENV=test PORT=3002 nodemon server.js",
     "jest": "jest main.test.js"
