@@ -119,6 +119,8 @@ For GCP Cloud Build, you must follow these steps.
    - When a user sends a request, it is routed to the Express.js server through the GCP Load Balancer.
 2. **GCP Express.js server**  
    - The Express.js server handles CRUD operations by communicating with MySQL Cloud SQL.  
+3. **High-Hackers Flask server**  
+   - The Flask detecting server utilizes the Mobilenet v3 model to detect precise forest fires in real time.
 
 ## ⚙️ Tech Stacks
 
