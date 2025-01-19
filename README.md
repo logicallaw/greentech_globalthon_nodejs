@@ -1,5 +1,16 @@
-# ☘️ High Hackers by Team 3
-This is 2025 GreenTech Globalthon High-Hackers Back-end.
+# ☘️ (2025) GreenTech Globalton NodeJS
+**Team 3: High-Hackers**
+
+Our system seamlessly integrates Flutter for the front-end with Express.js, Flask, and Google Cloud Platform (GCP) for the back-end.
+
+By leveraging our AI models, our hardware can instantly detect forest fires, enabling managers to monitor and assess affected areas in real time through our app.
+
+**Key Features**
+   1.	**Real-Time Monitoring**
+Administrators can interact with a central map in the app to view management areas and select devices for real-time wildfire monitoring and risk analysis.
+
+   2.	**Future Expansion**
+We aim to enhance our system with an integrated AI monitoring network, utilizing drones and satellites for precise wildfire detection and climate change adaptation strategies.
 
 ## 👥 My Team Contributors
 
@@ -119,7 +130,8 @@ For GCP Cloud Build, you must follow these steps.
   - GCP Managed SSL
   - GCP Cloud Load Balancer  
   - GCP Cloud Build (for CI/CD)
-- **Code Formatting**: Clang-format  
+- **AI Models**: Mobilenet v3
+- **Code Formatting**: Clang-format
 - **Style Guide**: Google C++ Style Guide (adapted where applicable) 
 
 ## 🧑‍💻 How to contribute
@@ -147,4 +159,4 @@ This project is licensed under the MIT License. For more details, please refer t
 ## 📝 Questions or Support
 If you have any questions or need support, feel free to open an issue on GitHub or reach out via the following contact methods:
  - Email: logicallawbio@gmail.com
- - GitHub: logicallaw(Back-end developer)
+ - GitHub: logicallaw(Kim Jun-Ho)
