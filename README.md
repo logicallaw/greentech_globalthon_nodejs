@@ -1,12 +1,19 @@
-# ☘️ 2025 GreenTech Globalthon NodeJS Server
+# ☘️ High Hackers by Team 3
+This is 2025 GreenTech Globalthon High-Hackers Back-end.
 
 ## 👥 My Team Contributors
 
-| Name           | Roles                             |
-|----------------|---------------------------------- |
-| Kim Jun-Ho     | Backend                           |
+| Name              | Roles                 |
+|-------------------|-----------------------|
+| Nilufar Kurbonova | Team Leader, Planning | 
+| Nozima            | Researching           |
+| Lim Sun-Jong      | AI                    |
+| Kim JunHo         | Back-end, Front-end   |
+
 
 ## 📺 Demo Video
+Experience the functionality of this project by watching the demo video:  
+[Watch the Demo](https://youtube.com/shorts/Xlh7Vsu9PM8?feature=share)
 
 ## 🚀 Start
 
@@ -63,6 +70,7 @@ This project was carried out in the following environment.
    # JWT SECRET
    JWT_SECRET = your-jwt-secret
    JWT_EXPIRES_IN= your-jwt-expires-in
+   FLASK_URL = your-flask-server-url
    ```
 4. **Run production environment of Node.js server**
    ```bash
@@ -123,7 +131,7 @@ For GCP Cloud Build, you must follow these steps.
    ```
 
 ## 🗂️ Project architecture
-
+![project-architecture-image](public/architecture.png)
 
 1. **Client request**  
    - When a user sends a request, it is routed to the Express.js server through the GCP Load Balancer.
@@ -132,7 +140,7 @@ For GCP Cloud Build, you must follow these steps.
 
 ## ⚙️ Tech Stacks
 
-- **Backend**: Node.js, Express.js
+- **Backend**: Node.js, Express.js, Flask
 - **Database**: Cloud SQL (MySQL)  
 - **Cloud Provider**: Google Cloud Platform (GCP)  
   - GCP VM Instances (with Auto-scaling)  
@@ -168,4 +176,4 @@ This project is licensed under the MIT License. For more details, please refer t
 ## 📝 Questions or Support
 If you have any questions or need support, feel free to open an issue on GitHub or reach out via the following contact methods:
  - Email: logicallawbio@gmail.com
- - GitHub: logicallaw
+ - GitHub: logicallaw(Back-end developer)
