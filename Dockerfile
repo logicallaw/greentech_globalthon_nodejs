@@ -1,10 +1,10 @@
-# This is file of the project logicallaw
+# This is file of the project High-Hackers
 # Licensed under the MIT License.
-# Copyright (c) 2025 logicallaw
+# Copyright (c) 2025 High-Hackers
 # For full license text, see the LICENSE file in the root directory or at
 # https://opensource.org/license/mit
 # Author: logicallaw
-# Latest Updated Date: 2025-01-15
+# Latest Updated Date: 2025-01-19
 
 # Fix Node.js Image Version
 FROM node:23.6.0
