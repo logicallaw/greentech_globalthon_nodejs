@@ -16,7 +16,6 @@ const path = require('path');
 const morgan = require('morgan');
 const cookie_parser = require('cookie-parser');
 const session = require('express-session');
-const ratelimit = require('express-rate-limit');
 const logger = require('./logs/logger');
 const hpp = require('hpp');
 const cors = require('cors');
@@ -24,8 +23,6 @@ const cors = require('cors');
 // Import custom modules
 const main_router = require('./routes/main');
 const detect_router = require('./routes/detect');
-
-const db = require('./models');
 
 // 2. Set environment variables
 dotenv.config();
@@ -40,13 +37,7 @@ nunjucks.configure('views', {
   watch: true,
 });
 
-// 4. Set security and performance (Rate limit, CORS)
-const global_limiter = ratelimit({
-  windowMs: 1 * 60 * 1000,  // 1m
-  max: 60,                  // 60 times a minute
-  message: 'Too many requests, please try again later.',
-  keyGenerator: (req) => req.ip,  // Limit based on ip address
-});
+// 4. Set security and performance (CORS)
 app.use(cors());
 
 // 5. Set middlewares
@@ -79,29 +70,11 @@ const session_options = {
 };
 app.use(session(session_options));
 
-// 7. Initialize data bases
-db.sequelize.sync({force: process.env.NODE_ENV === 'test'})
-    .then(() => {
-      const node_env = process.env.NODE_ENV;
-      let host = '0.0.0.0';
-      if (node_env == 'production') {
-        host = process.env.SEQUELIZE_HOST;
-      } else if (node_env == 'development') {
-        host = process.env.SEQUELIZE_DEV_HOST;
-      } else {
-        host = process.env.SEQUELIZE_TEST_HOST;
-      }
-      console.log(`[MySQL at ${host}] Database & tables connected!`);
-    })
-    .catch((error) => {
-      console.error(`[MySQL] Error creating database tables:`, error);
-    });
-
-// 8. Set routers
+// 7. Set routers
 app.use('/', main_router);
 app.use('/detect', detect_router);
 
-// 9. Error Handling Middleware
+// 8. Error Handling Middleware
 app.use((req, res, next) => {
   const error = new Error(`Not existed ${req.method} ${req.url} routes.`);
   error.status = 404;
@@ -119,5 +92,5 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
-// 10. Export module
+// 9. Export module
 module.exports = app;
