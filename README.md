@@ -41,35 +41,6 @@ This project was carried out in the following environment.
 3. **Set environmental variables**
    ```bash
    COOKIE_SECRET = your-cookie-secret
-
-   # Connect to GCP MySQL - PROD
-   SEQUELIZE_USERNAME = your-db-username
-   SEQUELIZE_PASSWORD = your-db-password
-   SEQUELIZE_DB_PROD = your-db-name
-
-   SEQUELIZE_HOST = your-cloud-sql-host
-   SEQUELIZE_PORT = your-cloud-sql-port
-
-   # Connect to local MySQL - DEV
-   SEQUELIZE_DEV_USERNAME = your-db-username
-   SEQUELIZE_DEV_PASSWORD = your-db-password
-   SEQUELIZE_DEV_DB = your-db-name
-
-   SEQUELIZE_DEV_HOST = your-cloud-sql-host
-   SEQUELIZE_DEV_PORT = your-cloud-sql-port
-
-   # Connect to local MySQL - TEST 
-   SEQUELIZE_TEST_USERNAME = your-db-username
-   SEQUELIZE_TEST_PASSWORD = your-db-password
-   SEQUELIZE_TEST_DB = your-db-name
-
-   SEQUELIZE_TEST_HOST =  your-cloud-sql-host
-   SEQUELIZE_TEST_PORT = your-cloud-sql-port
-   TEST_SERVER_URL = your-cloud-sql-url
-
-   # JWT SECRET
-   JWT_SECRET = your-jwt-secret
-   JWT_EXPIRES_IN= your-jwt-expires-in
    FLASK_URL = your-flask-server-url
    ```
 4. **Run production environment of Node.js server**
